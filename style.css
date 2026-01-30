@@ -1,0 +1,304 @@
+:root {
+  --red: #FF2E2E;
+  --green: #4CAF50;
+  --cream: #fff6e5;
+  --dark-bg: #1e1e1e;
+  --dark-card: #2b2b2b;
+  --dark-text: #f5f5f5;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: #222;
+  transition: 0.3s;
+}
+
+body.dark {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+header {
+  background: var(--red);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+nav a, nav button {
+  color: white;
+  margin-left: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+}
+
+.steps {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.step {
+  background: white;
+  width: 180px;
+  padding: 1rem;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.step:hover {
+  transform: translateY(-6px);
+  background: #ffe1e1;
+}
+
+body.dark .step {
+  background: var(--dark-card);
+}
+
+.step span {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.step-info {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  border-radius: 15px;
+  background: white;
+  min-height: 120px;
+}
+
+.step-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.step-image {
+  width: 160px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+
+body.dark .step-info {
+  background: var(--dark-card);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  opacity: 0.8;
+}
+
+
+/* 🍓 Fresita parlanchina */
+.fresita-container {
+  position: relative;
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.fresita {
+  width: 90px;
+  height: 100px;
+  background: #ff2e2e;
+  border-radius: 50% 50% 60% 60%;
+  position: relative;
+  cursor: pointer;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+/* hojitas */
+.fresita::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 25px;
+  background: #4CAF50;
+  border-radius: 0 0 20px 20px;
+}
+
+/* ojitos */
+.eyes {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  top: 35px;
+  width: 100%;
+}
+
+.eyes span {
+  width: 8px;
+  height: 8px;
+  background: #222;
+  border-radius: 50%;
+  animation: blink 4s infinite;
+}
+
+/* sonrisa */
+.smile {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  width: 25px;
+  height: 12px;
+  border-bottom: 3px solid #222;
+  border-radius: 0 0 30px 30px;
+  transform: translateX(-50%);
+}
+
+/* globito */
+.speech-bubble {
+  background: white;
+  padding: 1rem;
+  border-radius: 15px;
+  max-width: 260px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+.fresita-container.active .speech-bubble {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fresita-title {
+  margin: 0;
+  color: #ff2e2e;
+}
+
+.fresita-fact {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* animaciones */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+/* 🌙 modo oscuro */
+body.dark .speech-bubble {
+  background: #2b2b2b;
+  color: #f5f5f5;
+}
+
+/* 🍓 Fresita lateral */
+.fresita-side {
+  position: absolute;
+  right: -20px;
+  top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 10;
+}
+
+.section {
+  position: relative;
+}
+
+/* Icono estilo sticker */
+.fresita-icon {
+  font-size: 3rem;
+  cursor: pointer;
+  animation: float 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+/* Globo */
+.fresita-bubble {
+  background: white;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  width: 260px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.fresita-side.active .fresita-bubble {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.f-title {
+  margin: 0;
+  color: #FF2E2E;
+}
+
+.f-fact {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* 🌙 modo oscuro */
+body.dark .fresita-bubble {
+  background: #2b2b2b;
+  color: #f5f5f5;
+}
+
+/* Animación */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* 📱 responsive */
+@media (max-width: 768px) {
+  .fresita-side {
+    position: static;
+    margin-bottom: 1rem;
+  }
+}
